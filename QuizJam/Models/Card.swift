@@ -17,4 +17,5 @@ struct Card : Codable, Identifiable {
             case prompt, answer
     }
 
+    static let example = Card(prompt: "Who played the 13th Doctor in Doctor Who?", answer: "Jodie Whittaker")
 }

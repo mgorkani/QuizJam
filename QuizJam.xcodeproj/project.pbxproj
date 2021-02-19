@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B12212A725E07A9200FC8EB9 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12212A425E07A9200FC8EB9 /* CardView.swift */; };
+		B12212A825E07A9200FC8EB9 /* CardContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12212A525E07A9200FC8EB9 /* CardContents.swift */; };
+		B12212A925E07A9200FC8EB9 /* CardBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12212A625E07A9200FC8EB9 /* CardBackground.swift */; };
+		B12212AC25E07AA400FC8EB9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12212AB25E07AA400FC8EB9 /* Colors.swift */; };
 		FA78781B25E02F44001299EB /* QuizJamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA78781A25E02F44001299EB /* QuizJamApp.swift */; };
 		FA78781D25E02F44001299EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA78781C25E02F44001299EB /* ContentView.swift */; };
 		FA78781F25E02F45001299EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA78781E25E02F45001299EB /* Assets.xcassets */; };
@@ -18,6 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B12212A425E07A9200FC8EB9 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		B12212A525E07A9200FC8EB9 /* CardContents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardContents.swift; sourceTree = "<group>"; };
+		B12212A625E07A9200FC8EB9 /* CardBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardBackground.swift; sourceTree = "<group>"; };
+		B12212AB25E07AA400FC8EB9 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		FA78781725E02F44001299EB /* QuizJam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizJam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA78781A25E02F44001299EB /* QuizJamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizJamApp.swift; sourceTree = "<group>"; };
 		FA78781C25E02F44001299EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,6 +49,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B12212A325E07A9200FC8EB9 /* Card Components */ = {
+			isa = PBXGroup;
+			children = (
+				B12212A425E07A9200FC8EB9 /* CardView.swift */,
+				B12212A525E07A9200FC8EB9 /* CardContents.swift */,
+				B12212A625E07A9200FC8EB9 /* CardBackground.swift */,
+			);
+			path = "Card Components";
+			sourceTree = "<group>";
+		};
 		FA78780E25E02F44001299EB = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +78,8 @@
 		FA78781925E02F44001299EB /* QuizJam */ = {
 			isa = PBXGroup;
 			children = (
+				B12212AB25E07AA400FC8EB9 /* Colors.swift */,
+				B12212A325E07A9200FC8EB9 /* Card Components */,
 				FA78783625E0640F001299EB /* Models */,
 				FA78783525E063FD001299EB /* Views */,
 				FA78781A25E02F44001299EB /* QuizJamApp.swift */,
@@ -168,9 +188,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA78781D25E02F44001299EB /* ContentView.swift in Sources */,
+				B12212AC25E07AA400FC8EB9 /* Colors.swift in Sources */,
+				B12212A925E07A9200FC8EB9 /* CardBackground.swift in Sources */,
 				FA78783125E06367001299EB /* ModelData.swift in Sources */,
+				B12212A825E07A9200FC8EB9 /* CardContents.swift in Sources */,
 				FA78783825E0643F001299EB /* CardList.swift in Sources */,
 				FA78782B25E04383001299EB /* Card.swift in Sources */,
+				B12212A725E07A9200FC8EB9 /* CardView.swift in Sources */,
 				FA78781B25E02F44001299EB /* QuizJamApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
