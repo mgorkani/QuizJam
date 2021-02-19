@@ -16,10 +16,22 @@ struct CardList: View {
                 ForEach(modelData.cards) {card in
                     Text(card.prompt)
                 }
+                .onDelete(perform: delete)
             }
+            .navigationBarItems(leading: EditButton(), trailing: Button(action: onAdd) { Image(systemName: "plus") })
             .navigationTitle("Flash Cards")
         }
     }
+    
+    func onAdd() {
+        // To be implemented in the next section
+    }
+    func delete(at offsets: IndexSet) {
+        modelData.cards.remove(atOffsets: offsets)
+    }
+    
+    
+    
 }
 
 struct CardList_Previews: PreviewProvider {
