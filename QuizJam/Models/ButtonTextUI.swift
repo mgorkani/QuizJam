@@ -15,6 +15,6 @@ struct ButtonTextUI: View {
             .font(.title)
             .foregroundColor(Color.snow)
             .padding()
-            .frame(width: 160, height: 140, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            .frame(minWidth: 0, maxWidth: 200, minHeight: 0, maxHeight: 200)
     }
 }
