@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
-       Text("Need to update")
+       CardList()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+        .environmentObject(ModelData())
     }
 }

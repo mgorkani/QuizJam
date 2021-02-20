@@ -11,6 +11,8 @@
 		B12212A825E07A9200FC8EB9 /* CardContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12212A525E07A9200FC8EB9 /* CardContents.swift */; };
 		B12212A925E07A9200FC8EB9 /* CardBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12212A625E07A9200FC8EB9 /* CardBackground.swift */; };
 		B12212AC25E07AA400FC8EB9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12212AB25E07AA400FC8EB9 /* Colors.swift */; };
+		FA3F27B825E08AF400958C4C /* AddCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F27B725E08AF400958C4C /* AddCard.swift */; };
+		FA3F27BC25E0AC7800958C4C /* EditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F27BB25E0AC7800958C4C /* EditCard.swift */; };
 		FA78781B25E02F44001299EB /* QuizJamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA78781A25E02F44001299EB /* QuizJamApp.swift */; };
 		FA78781D25E02F44001299EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA78781C25E02F44001299EB /* ContentView.swift */; };
 		FA78781F25E02F45001299EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA78781E25E02F45001299EB /* Assets.xcassets */; };
@@ -26,6 +28,8 @@
 		B12212A525E07A9200FC8EB9 /* CardContents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardContents.swift; sourceTree = "<group>"; };
 		B12212A625E07A9200FC8EB9 /* CardBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardBackground.swift; sourceTree = "<group>"; };
 		B12212AB25E07AA400FC8EB9 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		FA3F27B725E08AF400958C4C /* AddCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCard.swift; sourceTree = "<group>"; };
+		FA3F27BB25E0AC7800958C4C /* EditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCard.swift; sourceTree = "<group>"; };
 		FA78781725E02F44001299EB /* QuizJam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizJam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA78781A25E02F44001299EB /* QuizJamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizJamApp.swift; sourceTree = "<group>"; };
 		FA78781C25E02F44001299EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -87,7 +91,6 @@
 				FA78782325E02F45001299EB /* Info.plist */,
 				FA78782025E02F45001299EB /* Preview Content */,
 				FA78782D25E05F7A001299EB /* cardData.json */,
-				FA78783025E06367001299EB /* ModelData.swift */,
 			);
 			path = QuizJam;
 			sourceTree = "<group>";
@@ -105,6 +108,8 @@
 			children = (
 				FA78781C25E02F44001299EB /* ContentView.swift */,
 				FA78783725E0643F001299EB /* CardList.swift */,
+				FA3F27B725E08AF400958C4C /* AddCard.swift */,
+				FA3F27BB25E0AC7800958C4C /* EditCard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 		FA78783625E0640F001299EB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FA78783025E06367001299EB /* ModelData.swift */,
 				FA78782A25E04383001299EB /* Card.swift */,
 			);
 			path = Models;
@@ -194,6 +200,8 @@
 				B12212A825E07A9200FC8EB9 /* CardContents.swift in Sources */,
 				FA78783825E0643F001299EB /* CardList.swift in Sources */,
 				FA78782B25E04383001299EB /* Card.swift in Sources */,
+				FA3F27BC25E0AC7800958C4C /* EditCard.swift in Sources */,
+				FA3F27B825E08AF400958C4C /* AddCard.swift in Sources */,
 				B12212A725E07A9200FC8EB9 /* CardView.swift in Sources */,
 				FA78781B25E02F44001299EB /* QuizJamApp.swift in Sources */,
 			);
