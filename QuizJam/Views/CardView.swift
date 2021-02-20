@@ -26,7 +26,7 @@ struct CardView: View {
             .animation(.easeOut(duration: 0.35))
             .onTapGesture {
                 flipped.toggle()
-                    textDisplayedOnCard = flipped ? card.answer : card.prompt
+                textDisplayedOnCard = flipped ? card.answer : card.prompt
             }
             .onAppear(perform: {
                 textDisplayedOnCard = card.prompt

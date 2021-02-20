@@ -18,18 +18,18 @@ struct AnswerCountView: View {
                 Text("\(count)")
                     .font(.system(size: 27, weight: .heavy, design: .rounded))
                 Image(systemName: "checkmark.circle.fill")
-                    .font(.system(size: 45, weight: .heavy, design: .rounded))
+                    .font(.system(size: 35, weight: .heavy, design: .rounded))
                     .foregroundColor(.green)
             } else {
                 Image(systemName: "xmark.circle.fill")
-                    .font(.system(size: 45, weight: .heavy, design: .rounded))
+                    .font(.system(size: 35, weight: .heavy, design: .rounded))
                     .foregroundColor(.red)
                 Text("\(count)")
                     .font(.system(size: 27, weight: .heavy, design: .rounded))
             }
         }
-        .scaleEffect(animate ? 1.25 : 1)
-        .animation(animate ? Animation.easeInOut(duration: 0.5).repeatCount(1) : .none)
+        .scaleEffect(animate ? 0.8 : 1)
+        .animation(animate ? Animation.easeInOut(duration: 1) : .none)
     }
     
     enum AnswerType {

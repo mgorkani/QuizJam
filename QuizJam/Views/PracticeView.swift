@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct PracticeView: View {
-    var cards: [Card]
-    var screenbounds = UIScreen.main.bounds
+    @State private var cards = [Card]()
+    @EnvironmentObject var modelData: ModelData
+    
+    let screenbounds = UIScreen.main.bounds
     
     @State private var gradedAnswers = [Bool]()
     @State private var currentCard = 0
@@ -29,7 +31,11 @@ struct PracticeView: View {
     }
     
     var completePercentage: CGFloat {
-        CGFloat(currentCard) / CGFloat(cards.count)
+        if cards.isEmpty {
+            return 0
+        } else {
+            return CGFloat(currentCard) / CGFloat(cards.count)
+        }
     }
     
     @State private var practiceComplete = false
@@ -93,6 +99,7 @@ struct PracticeView: View {
             CompletionBar(percentage: completePercentage)
                 .frame(maxHeight: 10)
                 .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                .padding(.top, 50)
             
             HStack {
                 AnswerCountView(answerType: .wrong, count: wrongCount, animate: animateWrongAnswerCount)
@@ -102,6 +109,10 @@ struct PracticeView: View {
                 AnswerCountView(answerType: .right, count: rightCount, animate: animateRightAnswerCount)
             }
         }
+        .padding(30)
+        .onAppear(perform: {
+            cards = modelData.cards.shuffled()
+        })
     }
     
     fileprivate func restartPractice() {
@@ -156,9 +167,8 @@ struct PracticeView: View {
 
 struct PracticeView_Previews: PreviewProvider {
     static var previews: some View {
-        let cards = ModelData()
-        
-        PracticeView(cards: cards.cards)
+        PracticeView()
             .padding()
+            .environmentObject(ModelData())
     }
 }

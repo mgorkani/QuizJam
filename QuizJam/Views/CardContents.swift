@@ -12,10 +12,10 @@ struct CardContents: View {
     var flipped: Bool
     
     var body: some View {
-        Text(contents)
+        Text(flipped ? "Answer:\n" + contents : contents)
             .fontWeight(.bold)
             .multilineTextAlignment(.center)
-            .foregroundColor(flipped ? Color.red : Color.fontColor)
+            .foregroundColor(.fontColor)
             .font(.title)
             .padding(20)
             .rotation3DEffect(
@@ -28,6 +28,6 @@ struct CardContents: View {
 
 struct CardContents_Previews: PreviewProvider {
     static var previews: some View {
-        CardContents(contents: "What is your name?", flipped: false)
+        CardContents(contents: "What is your name?", flipped: true)
     }
 }

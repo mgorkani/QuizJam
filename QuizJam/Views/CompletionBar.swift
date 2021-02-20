@@ -11,13 +11,15 @@ struct CompletionBar: View {
     var percentage: CGFloat
     
     var body: some View {
-        GeometryReader { geo in
+        print(percentage)
+        
+        return GeometryReader { geo in
             ZStack(alignment: .bottomLeading) {
                 Rectangle()
-                    .fill(Color.cardBackgroundColor)
+                    .fill(Color.completionBarBackgroundColor)
                 
                 Rectangle()
-                    .fill(Color.completionBarColor)
+                    .fill(Color.completionBarButtonColor)
                     .frame(width: geo.frame(in: .global).width * percentage)
             }
         }

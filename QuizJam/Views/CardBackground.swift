@@ -9,8 +9,15 @@ import SwiftUI
 
 struct CardBackground: View {
     var body: some View {
-        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-            .fill(Color.cardBackgroundColor)
+        ZStack {
+            RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+                .fill(Color.cardBorderBackgroundColor)
+                .shadow(color: .gray, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: 5, y: 5)
+            RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+                .scale(0.985)
+                .fill(Color.cardBackgroundColor)
+                .blur(radius: /*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
+        }
     }
 }
 
