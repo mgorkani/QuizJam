@@ -18,6 +18,7 @@ struct CardView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .overlay(
                 CardContents(contents: flipped ? card.answer : card.prompt, flipped: flipped)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             )
             .rotation3DEffect(
                 .degrees(flipped ? 180 : 0),
