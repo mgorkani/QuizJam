@@ -22,12 +22,4 @@ extension Color {
     static let carribeanOcean = Color(red: 0.25, green: 0.82, blue: 0.58)
     static let blizzardBlue = Color(red: 0.77, green: 0.95, blue: 1.00)
     
-    //Home Screen pallete 2
-    
-    static  let cream = Color(red: 0.96, green: 0.95, blue: 0.87, opacity: 1)
-    static let burntSienna = Color(red: 0.88, green: 0.48, blue: 0.37, opacity: 1)
-    static  let eggShell = Color(red: 0.95, green: 0.80, blue: 0.56,opacity: 1 )
-    static  let slate = Color(red: 0.24, green: 0.25, blue: 0.36, opacity: 1)
-    static  let bush = Color(red: 0.51, green: 0.70, blue: 0.60, opacity: 1)
-    
 }
