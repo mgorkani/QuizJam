@@ -17,7 +17,7 @@ extension Color {
     static let background = Color.white
     static let snow = Color(red: 0.99, green: 0.95, blue: 0.96)
     static let orangeRed = Color(red: 0.96, green: 0.35, blue: 0.29)
-    static let maximumYellow = Color(red: 0.92, green: 0.69, blue: 0.30)//
+    static let maximumYellow = Color(red: 0.96, green: 0.66, blue: 0.04)
     static let oceanBlue = Color(red: 0.25, green: 0.24, blue: 0.85)
     static let carribeanOcean = Color(red: 0.25, green: 0.82, blue: 0.58)
     static let blizzardBlue = Color(red: 0.77, green: 0.95, blue: 1.00)
