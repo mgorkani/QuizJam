@@ -8,48 +8,46 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
-
-            
-        let cream = Color(red: 0.96, green: 0.95, blue: 0.87, opacity: 1)
-        let burntSienna = Color(red: 0.88, green: 0.48, blue: 0.37, opacity: 1)
-        let eggShell = Color(red: 0.95, green: 0.80, blue: 0.56,opacity: 1 )
-        let slate = Color(red: 0.24, green: 0.25, blue: 0.36, opacity: 1)
-        let bush = Color(red: 0.51, green: 0.70, blue: 0.60, opacity: 1)
-        
-//        let backgroundColor = LinearGradient(gradient: Gradient(colors: [burntSienna, slate]), startPoint: .top, endPoint: .bottom)
-        
-        
-        ZStack {
-           // backgroundColor.ignoresSafeArea()
-            slate.ignoresSafeArea()
-            VStack(spacing: 100) {
-                Button(action: {
-                    print("Button was tapped")
-                }) {
-                    Text("Practice")
-                        .font(.largeTitle).bold()
-                        .foregroundColor(cream)
-                        .padding()
-                        .background(burntSienna)
-                        .cornerRadius(25)
-                }
-                
-                Button(action: {
-                    print("Button was tapped")
-                }) {
-                    Text("Manage")
-                        .font(.largeTitle).bold()
-                        .foregroundColor(cream)
-                        .padding()
-                        .background(bush)
-                        .cornerRadius(25)
-
+        NavigationView {
+            ZStack {
+                Color.white.edgesIgnoringSafeArea(.all)
+                VStack {
+                    HStack(spacing: 25, content: {
+                        Button(action: {
+                            print("Practice button was tapped")
+                        }) {
+                            ButtonTextUI(buttonText: "Practice")
+                                .foregroundColor(Color.snow)
+                                .background(Color.orangeRed)
+                                .cornerRadius(25)
+                        }
+                        Button(action: {
+                            print("Manage button was tapped")
+                        }) {
+                            ButtonTextUI(buttonText: "Manage")
+                                .foregroundColor(Color.snow)
+                                .background(Color.oceanBlue)
+                                .cornerRadius(25)
+                        }
+                    })
+                    Spacer()
                 }
             }
+            .navigationTitle("QuizJam")
         }
-       // .background(cream)
+    }
+    
+    @available(iOS 14, *)
+    func navigationBarTitleTextColor(_ color: Color) -> some View {
+        let uiColor = UIColor(color)
         
+        // Set appearance for both normal and large sizes.
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: uiColor ]
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: uiColor ]
+        
+        return self
     }
 }
 
