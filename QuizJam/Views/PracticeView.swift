@@ -37,6 +37,15 @@ struct PracticeView: View {
             VStack {
                 HStack {
                     Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Image(systemName: "xmark")
+                            .font(.title3)
+                            .foregroundColor(.gray)
+                    })
+                    
+                    Spacer()
+                    Button(action: {
                         showHelp.toggle()
                     }, label: {
                         Image(systemName: "questionmark.circle")
@@ -44,15 +53,7 @@ struct PracticeView: View {
                             .foregroundColor(.gray)
                     })
                     
-                    Spacer()
-                    
-                    Button(action: {
-                        presentationMode.wrappedValue.dismiss()
-                    }, label: {
-                        Image(systemName: "xmark")
-                            .font(.title3)
-                            .foregroundColor(.gray)
-                    })
+                   
                 }
                 
                 Spacer()
