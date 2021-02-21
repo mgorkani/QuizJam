@@ -12,8 +12,10 @@ struct QuizJamApp: App {
     @StateObject private var modelData = ModelData()
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(modelData)
+            ContentView() {
+                modelData.save()
+            }
+            .environmentObject(modelData)
         }
     }
 }
