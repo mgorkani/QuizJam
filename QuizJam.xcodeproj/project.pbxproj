@@ -11,6 +11,10 @@
 		B12212A825E07A9200FC8EB9 /* CardContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12212A525E07A9200FC8EB9 /* CardContents.swift */; };
 		B12212A925E07A9200FC8EB9 /* CardBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12212A625E07A9200FC8EB9 /* CardBackground.swift */; };
 		B12212AC25E07AA400FC8EB9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12212AB25E07AA400FC8EB9 /* Colors.swift */; };
+		B18B0F2D25E0809B00DF51CE /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B0F2C25E0809B00DF51CE /* PracticeView.swift */; };
+		B18B0F3325E0B8CF00DF51CE /* CompletionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B0F3225E0B8CF00DF51CE /* CompletionBar.swift */; };
+		B1DDA08B25E1DD8D00CCFABB /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DDA08A25E1DD8D00CCFABB /* HelpView.swift */; };
+		B1DDA08E25E1DDD200CCFABB /* HelpItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DDA08D25E1DDD200CCFABB /* HelpItemView.swift */; };
 		CD7E285225E1C3F500BEC6A7 /* NavigationBarUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7E285125E1C3F500BEC6A7 /* NavigationBarUI.swift */; };
 		F2311CFB25E0C52700A8CCFF /* ButtonTextUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2311CFA25E0C52700A8CCFF /* ButtonTextUI.swift */; };
 		FA3F27B825E08AF400958C4C /* AddCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F27B725E08AF400958C4C /* AddCard.swift */; };
@@ -30,6 +34,10 @@
 		B12212A525E07A9200FC8EB9 /* CardContents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardContents.swift; sourceTree = "<group>"; };
 		B12212A625E07A9200FC8EB9 /* CardBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardBackground.swift; sourceTree = "<group>"; };
 		B12212AB25E07AA400FC8EB9 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		B18B0F2C25E0809B00DF51CE /* PracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeView.swift; sourceTree = "<group>"; };
+		B18B0F3225E0B8CF00DF51CE /* CompletionBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionBar.swift; sourceTree = "<group>"; };
+		B1DDA08A25E1DD8D00CCFABB /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
+		B1DDA08D25E1DDD200CCFABB /* HelpItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpItemView.swift; sourceTree = "<group>"; };
 		CD7E285125E1C3F500BEC6A7 /* NavigationBarUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarUI.swift; sourceTree = "<group>"; };
 		F2311CFA25E0C52700A8CCFF /* ButtonTextUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTextUI.swift; sourceTree = "<group>"; };
 		FA3F27B725E08AF400958C4C /* AddCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCard.swift; sourceTree = "<group>"; };
@@ -57,16 +65,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B12212A325E07A9200FC8EB9 /* Card Components */ = {
-			isa = PBXGroup;
-			children = (
-				B12212A425E07A9200FC8EB9 /* CardView.swift */,
-				B12212A525E07A9200FC8EB9 /* CardContents.swift */,
-				B12212A625E07A9200FC8EB9 /* CardBackground.swift */,
-			);
-			path = "Card Components";
-			sourceTree = "<group>";
-		};
 		FA78780E25E02F44001299EB = {
 			isa = PBXGroup;
 			children = (
@@ -111,8 +109,15 @@
 		FA78783525E063FD001299EB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B12212A425E07A9200FC8EB9 /* CardView.swift */,
+				B12212A525E07A9200FC8EB9 /* CardContents.swift */,
+				B12212A625E07A9200FC8EB9 /* CardBackground.swift */,
 				FA78781C25E02F44001299EB /* ContentView.swift */,
 				FA78783725E0643F001299EB /* CardList.swift */,
+				B18B0F2C25E0809B00DF51CE /* PracticeView.swift */,
+				B1DDA08A25E1DD8D00CCFABB /* HelpView.swift */,
+				B1DDA08D25E1DDD200CCFABB /* HelpItemView.swift */,
+				B18B0F3225E0B8CF00DF51CE /* CompletionBar.swift */,
 				FA3F27B725E08AF400958C4C /* AddCard.swift */,
 				FA3F27BB25E0AC7800958C4C /* EditCard.swift */,
 			);
@@ -200,11 +205,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA78781D25E02F44001299EB /* ContentView.swift in Sources */,
+				B1DDA08B25E1DD8D00CCFABB /* HelpView.swift in Sources */,
+				B18B0F2D25E0809B00DF51CE /* PracticeView.swift in Sources */,
 				B12212AC25E07AA400FC8EB9 /* Colors.swift in Sources */,
 				B12212A925E07A9200FC8EB9 /* CardBackground.swift in Sources */,
+				B18B0F3325E0B8CF00DF51CE /* CompletionBar.swift in Sources */,
 				FA78783125E06367001299EB /* ModelData.swift in Sources */,
 				B12212A825E07A9200FC8EB9 /* CardContents.swift in Sources */,
 				FA78783825E0643F001299EB /* CardList.swift in Sources */,
+				B1DDA08E25E1DDD200CCFABB /* HelpItemView.swift in Sources */,
 				FA78782B25E04383001299EB /* Card.swift in Sources */,
 				FA3F27BC25E0AC7800958C4C /* EditCard.swift in Sources */,
 				FA3F27B825E08AF400958C4C /* AddCard.swift in Sources */,

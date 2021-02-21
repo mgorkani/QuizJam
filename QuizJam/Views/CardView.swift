@@ -18,6 +18,7 @@ struct CardView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .overlay(
                 CardContents(contents: flipped ? card.answer : card.prompt, flipped: flipped)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             )
             .rotation3DEffect(
                 .degrees(flipped ? 180 : 0),
@@ -25,7 +26,7 @@ struct CardView: View {
             .animation(.easeOut(duration: 0.35))
             .onTapGesture {
                 flipped.toggle()
-                    textDisplayedOnCard = flipped ? card.answer : card.prompt
+                textDisplayedOnCard = flipped ? card.answer : card.prompt
             }
             .onAppear(perform: {
                 textDisplayedOnCard = card.prompt
