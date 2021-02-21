@@ -15,6 +15,7 @@ struct CardList: View {
         NavigationView {
             List {
                 HStack {
+                    Spacer()
                     Text("\(modelData.cards.count) Cards")
                         .foregroundColor(.secondary)
                     Spacer()
