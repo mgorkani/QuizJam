@@ -30,13 +30,14 @@ struct PracticeView: View {
     @State private var practiceComplete = false
     
     @Environment(\.presentationMode) var presentationMode
+    @State private var showHelp = false
     
     var body: some View {
         ZStack {
             VStack {
                 HStack {
                     Button(action: {
-                        
+                        showHelp.toggle()
                     }, label: {
                         Image(systemName: "questionmark.circle")
                             .font(.title3)
@@ -138,6 +139,9 @@ struct PracticeView: View {
                 cards = modelData.cards.shuffled()
             })
         }
+        .sheet(isPresented: $showHelp, content: {
+            HelpView()
+        })
     }
     
     fileprivate func restartPractice() {
@@ -181,6 +185,7 @@ struct PracticeView: View {
 struct PracticeView_Previews: PreviewProvider {
     static var previews: some View {
         PracticeView()
+            .preferredColorScheme(.dark)
             .padding()
             .environmentObject(ModelData())
     }

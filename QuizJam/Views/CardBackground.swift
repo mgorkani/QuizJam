@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct CardBackground: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 25.0, style: .continuous)
                 .fill(Color.cardBorderBackgroundColor)
-                .shadow(color: .gray, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: 5, y: 5)
+                .shadow(color: colorScheme == .dark ? Color.clear : Color.gray, radius: 10, x: 5, y: 5)
             RoundedRectangle(cornerRadius: 25.0, style: .continuous)
                 .scale(0.985)
                 .fill(Color.cardBackgroundColor)
-                .blur(radius: /*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
+                .blur(radius: 3.0)
         }
     }
 }

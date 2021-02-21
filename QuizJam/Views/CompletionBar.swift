@@ -12,6 +12,8 @@ struct CompletionBar: View {
     var wrongAnswerCount = 0
     var cardCount = 0
     
+    @Environment(\.colorScheme) var colorScheme
+    
     var rightAnswerPercentage: CGFloat {
         if cardCount != 0 {
             return CGFloat(rightAnswerCount) / CGFloat(cardCount)
@@ -55,7 +57,7 @@ struct CompletionBar: View {
                 }
                 .frame(maxWidth: .infinity)
                 .clipShape(RoundedRectangle(cornerRadius: 25.0))
-                .shadow(color: .gray, radius: 5, x: 5, y: 5)
+                .shadow(color: colorScheme == .dark ? .clear : .gray, radius: 5, x: 5, y: 5)
                 
                 HStack(spacing: 0) {
                     Text("\(rightAnswerCount)")
