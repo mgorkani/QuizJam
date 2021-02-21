@@ -20,17 +20,22 @@ struct EditCard: View {
     
     var body: some View {
         Form {
-            Section(header: Text("Prompt")) {
-                TextEditor(text: $card.prompt.onChange(update)).font(.headline)
-                    .foregroundColor(.black)
-                    .padding(.bottom, 2).disableAutocorrection(true)
+            Section(header: Text("Prompt")
+                                .foregroundColor(.primary)) {
+                TextEditor(text: $card.prompt.onChange(update))
+                    .font(.headline)
+                    .padding(.bottom, 2)
+                    .disableAutocorrection(true)
+                    .foregroundColor(.primary)
             }
-            Section(header: Text("Answer")) {
-                TextEditor(text: $card.answer.onChange(update)).font(.subheadline)
-                    .foregroundColor(Color.oceanBlue).disableAutocorrection(true)
+            Section(header: Text("Answer")
+                                .foregroundColor(.primary)) {
+                TextEditor(text: $card.answer.onChange(update))
+                    .font(.subheadline)
+                    .disableAutocorrection(true)
+                    .foregroundColor(.primary)
             }
             
-        
         }.navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .principal) {

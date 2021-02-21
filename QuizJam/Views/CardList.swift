@@ -12,9 +12,6 @@ struct CardList: View {
     @State private var showingEditScreen = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    init(){
-        UITableView.appearance().backgroundColor = UIColor(Color.oceanBlue)
-    }
     var body: some View {
 
         NavigationView {
@@ -32,17 +29,16 @@ struct CardList: View {
                                     VStack(alignment: .leading) {
                                         Text(card.prompt)
                                             .font(.headline)
-                                            .foregroundColor(.black)
                                             .padding(.bottom, 2)
+                                            .foregroundColor(.primary)
                                         Text(card.answer)
                                             .font(.subheadline)
-                                            .foregroundColor(Color.gray)
+                                            .foregroundColor(.secondary)
                                     }
                                     .padding(.vertical)
                                 }
                             }
                             .onDelete(perform: delete)
-                            .listRowBackground(Color.white)
                         }
                     }
                     
@@ -53,24 +49,23 @@ struct CardList: View {
                                                 },label: {
                                                     Image(systemName: "chevron.backward")
                                                         .imageScale(.large)
-                                                        .foregroundColor(Color.snow)
                                                 })
                                                 EditButton()
-                                                    .foregroundColor(Color.snow)
-                                                
                                             },
                                         trailing:
                                             Button(action: onAdd) { Image(systemName: "plus")
                                                 .imageScale(.large)
-                                            })                                                    .foregroundColor(Color.snow)
+                                            })
                 }
+                .listStyle(InsetGroupedListStyle())
         }
-        
         .navigationBarHidden(true)
         .sheet(isPresented: self.$showingEditScreen, onDismiss: self.hideEdit, content: {
             AddCard().environmentObject(modelData)
         })
+        .padding(.bottom)
     }
+    
     func dismiss() {
         self.presentationMode.wrappedValue.dismiss()
     }

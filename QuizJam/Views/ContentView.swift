@@ -21,7 +21,6 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color.white.edgesIgnoringSafeArea(.all)
                 VStack(spacing: 35, content: {
                     NavigationLink(destination: PracticeView()) {
                         ButtonTextUI(buttonText: "Practice")
