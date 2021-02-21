@@ -3,7 +3,6 @@
 QuizJam is an app built with SwiftUI 2.0 to aid with memorization. QuizJam mimics the IRL flashcard study experience we're familiar with, with a popular "Tinder-style" twist.
 
 ## Key Features
-
 - You can create, edit, and delete flashcards
 - Review your flashcard bank
 - Save created flashcards for the next time you open the app
