@@ -24,7 +24,7 @@ DerivedData/
 *.moved-aside
 *.xccheckout
 *.xcscmblueprint
-
+*/xcuserdata/*
 ## Obj-C/Swift specific
 *.hmap
 *.ipa
