@@ -43,19 +43,22 @@ struct CardList: View {
                     }
                     
                     .navigationBarTitle("Flashcard Bank", displayMode: .automatic)
-                    .navigationBarItems(leading:
-                                            HStack {
-                                                Button(action: { self.presentationMode.wrappedValue.dismiss()
-                                                },label: {
-                                                    Image(systemName: "chevron.backward")
-                                                        .imageScale(.large)
-                                                })
-                                                EditButton()
-                                            },
-                                        trailing:
-                                            Button(action: onAdd) { Image(systemName: "plus")
-                                                .imageScale(.large)
-                                            })
+                    .toolbar {
+                                    ToolbarItem(placement: .navigationBarTrailing) {
+                                        EditButton()
+                                    }
+                                    
+                                    ToolbarItem(placement: .navigationBarTrailing) {
+                                        Button(action: onAdd) {
+                                            Image(systemName: "plus")
+                                        }
+                                    }
+                                    ToolbarItem(placement: .navigationBarLeading) {
+                                        Button(action: dismiss) {
+                                            Image(systemName: "xmark")
+                                        }
+                                    }
+                                }
                 }
                 .listStyle(InsetGroupedListStyle())
         }

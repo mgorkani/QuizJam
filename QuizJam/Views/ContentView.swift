@@ -11,8 +11,8 @@ struct ContentView: View {
     @Environment(\.scenePhase) private var scenePhase
     
     let saveAction: () -> Void
-    @State private var showPreview = false
-    @State private var fullScreen = true
+    @State private var showPractice = false
+    @State private var showManage = false
     
     init(saveAction: @escaping () -> Void) {
         self.saveAction = saveAction
@@ -22,21 +22,33 @@ struct ContentView: View {
         NavigationView {
             ZStack {
                 VStack(spacing: 35, content: {
-                    NavigationLink(destination: PracticeView()) {
+                    Button(action: {
+                        showPractice.toggle()
+                    }) {
                         ButtonTextUI(buttonText: "Practice")
                             .foregroundColor(Color.snow)
                             .background(Color.orangeRed)
                             .cornerRadius(25)
                             .shadow(color: .orangeRed , radius: 10, x: 5, y: 5)
+                            .fullScreenCover(isPresented: $showPractice, content: {
+                                PracticeView()
+                            })
+                        
                     }
-
-                    NavigationLink(destination: CardList()) {
+                    Button(action: {
+                        showManage.toggle()
+                    }) {
                         ButtonTextUI(buttonText: "Manage")
                             .foregroundColor(Color.snow)
                             .background(Color.oceanBlue)
                             .cornerRadius(25)
                             .shadow(color: .oceanBlue, radius: 10, x: 5, y: 5)
+                            .fullScreenCover(isPresented: $showManage, content: {
+                                CardList()
+                            })
+                        
                     }
+                    
                 })
                 Spacer()
             }
