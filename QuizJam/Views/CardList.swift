@@ -12,55 +12,64 @@ struct CardList: View {
     @State private var showingEditScreen = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    init(){
+        UITableView.appearance().backgroundColor = UIColor(Color.oceanBlue)
+    }
     var body: some View {
+
         NavigationView {
-            List {
-                HStack {
-                    Spacer()
-                    Text("\(modelData.cards.count) Cards")
-                        .foregroundColor(.secondary)
-                    Spacer()
-                }
-                
-                ForEach(modelData.cards) {card in
-                    NavigationLink(destination: EditCard(card: card)) {
-                        VStack(alignment: .leading) {
-                            Text(card.prompt)
-                                .font(.headline)
-                                .foregroundColor(.black)
-                                .padding(.bottom, 2)
-                            Text(card.answer)
-                                .font(.subheadline)
-                                .foregroundColor(Color.oceanBlue)
+                ZStack {
+                    VStack {
+                        List {
+                            HStack {
+                                Spacer()
+                                Text("\(modelData.cards.count) Cards")
+                                    .foregroundColor(.secondary)
+                                Spacer()
+                            }
+                            ForEach(modelData.cards) {card in
+                                NavigationLink(destination: EditCard(card: card)) {
+                                    VStack(alignment: .leading) {
+                                        Text(card.prompt)
+                                            .font(.headline)
+                                            .foregroundColor(.black)
+                                            .padding(.bottom, 2)
+                                        Text(card.answer)
+                                            .font(.subheadline)
+                                            .foregroundColor(Color.gray)
+                                    }
+                                    .padding(.vertical)
+                                }
+                            }
+                            .onDelete(perform: delete)
+                            .listRowBackground(Color.white)
                         }
-                        .padding(.vertical)
                     }
+                    
+                    .navigationBarTitle("Flashcard Bank", displayMode: .automatic)
+                    .navigationBarItems(leading:
+                                            HStack {
+                                                Button(action: { self.presentationMode.wrappedValue.dismiss()
+                                                },label: {
+                                                    Image(systemName: "chevron.backward")
+                                                        .imageScale(.large)
+                                                        .foregroundColor(Color.snow)
+                                                })
+                                                EditButton()
+                                                    .foregroundColor(Color.snow)
+                                                
+                                            },
+                                        trailing:
+                                            Button(action: onAdd) { Image(systemName: "plus")
+                                                .imageScale(.large)
+                                            })                                                    .foregroundColor(Color.snow)
                 }
-                .onDelete(perform: delete)
-            }
-            .navigationTitle("Flashcard Bank")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: onAdd) {
-                        Text("Add")
-                    }
-                }
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: dismiss) {
-                        Text("Close").bold()
-                    }
-                }
-            }
-            .listStyle(InsetGroupedListStyle())
         }
+        
+        .navigationBarHidden(true)
         .sheet(isPresented: self.$showingEditScreen, onDismiss: self.hideEdit, content: {
             AddCard().environmentObject(modelData)
         })
-
     }
     func dismiss() {
         self.presentationMode.wrappedValue.dismiss()
@@ -74,7 +83,6 @@ struct CardList: View {
     func hideEdit() {
         self.showingEditScreen = false
     }
-    
     
     
 }
