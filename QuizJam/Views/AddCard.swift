@@ -17,16 +17,23 @@ struct AddCard: View {
     var body: some View {
         NavigationView {
             Form {
-            
-                Section(header: Text("Prompt").bold().font(.subheadline)) {
+                
+                Section(header: Text("Prompt")
+                            .bold()
+                            .font(.subheadline)
+                            .foregroundColor(.primary)) {
                     TextEditor(text: $newPrompt).font(.headline)
-                        .foregroundColor(.black)
+                        .foregroundColor(.primary)
                         .padding(.bottom, 2)
-                            }
-                Section(header: Text("Answer").bold().font(.subheadline)) {
-                                TextEditor(text: $newAnswer).font(.subheadline)
-                                    .foregroundColor(Color.oceanBlue)
-                            }
+                }
+                Section(header: Text("Answer")
+                            .bold()
+                            .font(.subheadline)
+                            .foregroundColor(.primary)) {
+                    TextEditor(text: $newAnswer)
+                        .font(.subheadline)
+                        .foregroundColor(.primary)
+                }
                 
             }
             .navigationBarItems(leading: Button("Close"){self.dismiss()}, trailing: Button("Save"){self.addCard()}).navigationBarTitleDisplayMode(.inline)
