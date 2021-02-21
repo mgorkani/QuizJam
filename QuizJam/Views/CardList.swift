@@ -27,9 +27,6 @@ struct CardList: View {
                                     .foregroundColor(.secondary)
                                 Spacer()
                             }
-                            // .background(Color.blizzardBlue)
-                            
-                            
                             ForEach(modelData.cards) {card in
                                 NavigationLink(destination: EditCard(card: card)) {
                                     VStack(alignment: .leading) {
@@ -67,8 +64,6 @@ struct CardList: View {
                                                 .imageScale(.large)
                                             })                                                    .foregroundColor(Color.snow)
                 }
-            
-           
         }
         
         .navigationBarHidden(true)

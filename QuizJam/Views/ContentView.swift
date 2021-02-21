@@ -16,8 +16,6 @@ struct ContentView: View {
     
     init(saveAction: @escaping () -> Void) {
         self.saveAction = saveAction
-        
-        NavBarTheme.navigationBarColors(background: UIColor(Color.clear), titleColor: UIColor(Color.darkColor))
     }
     
     var body: some View {
