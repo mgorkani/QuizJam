@@ -17,15 +17,27 @@ struct AddCard: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Prompt")) {
-                                TextEditor(text: $newPrompt)
+            
+                Section(header: Text("Prompt").bold().font(.subheadline)) {
+                    TextEditor(text: $newPrompt).font(.headline)
+                        .foregroundColor(.black)
+                        .padding(.bottom, 2)
                             }
-                Section(header: Text("Answer")) {
-                                TextEditor(text: $newAnswer)
+                Section(header: Text("Answer").bold().font(.subheadline)) {
+                                TextEditor(text: $newAnswer).font(.subheadline)
+                                    .foregroundColor(Color.oceanBlue)
                             }
                 
             }
-            .navigationBarItems(leading: Button("Close"){self.dismiss()}, trailing: Button("Save"){self.addCard()})
+            .navigationBarItems(leading: Button("Close"){self.dismiss()}, trailing: Button("Save"){self.addCard()}).navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Text("Add").font(.headline).fontWeight(.bold)
+                        Image(systemName: "plus.rectangle.fill.on.rectangle.fill")
+                    }
+                }
+            }
         }
     }
     func addCard() {

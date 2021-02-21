@@ -10,6 +10,7 @@ import SwiftUI
 struct CardList: View {
     @EnvironmentObject var modelData: ModelData
     @State private var showingEditScreen = false
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         NavigationView {
@@ -39,13 +40,18 @@ struct CardList: View {
             }
             .navigationTitle("Flashcard Bank")
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: onAdd) {
-                        Image(systemName: "plus")
+                        Text("Add")
+                    }
+                }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: dismiss) {
+                        Text("Close").bold()
                     }
                 }
             }
@@ -56,7 +62,9 @@ struct CardList: View {
         })
 
     }
-    
+    func dismiss() {
+        self.presentationMode.wrappedValue.dismiss()
+    }
     func onAdd() {
         self.showingEditScreen = true
     }
