@@ -22,7 +22,7 @@ extension Color {
     
     static let background = Color(#colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1))
     static let darkColor = Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
-    static let snow = Color(#colorLiteral(red: 0.9882352941, green: 0.9529411765, blue: 0.9568627451, alpha: 1))
+    static let snow = Color(#colorLiteral(red: 0.9300724864, green: 0.9286059141, blue: 0.9765951037, alpha: 1))
     static let orangeRed = Color(#colorLiteral(red: 0.9647058824, green: 0.3450980392, blue: 0.2862745098, alpha: 1))
     static let maximumYellow = Color(#colorLiteral(red: 0.9607843137, green: 0.6588235294, blue: 0.03921568627, alpha: 1))
     static let oceanBlue = Color(#colorLiteral(red: 0.2549019608, green: 0.2352941176, blue: 0.8549019608, alpha: 1))
