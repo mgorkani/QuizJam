@@ -11,11 +11,6 @@ struct CardList: View {
     @EnvironmentObject var modelData: ModelData
     @State private var showingEditScreen = false
     
-    init() {
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color.snow)]
-        UITableView.appearance().backgroundColor = UIColor(Color.oceanBlue)
-    }
-    
     var body: some View {
         NavigationView {
             List {
@@ -30,9 +25,11 @@ struct CardList: View {
                         VStack(alignment: .leading) {
                             Text(card.prompt)
                                 .font(.headline)
+                                .foregroundColor(.black)
                                 .padding(.bottom, 2)
                             Text(card.answer)
                                 .font(.subheadline)
+                                .foregroundColor(Color.oceanBlue)
                         }
                         .padding(.vertical)
                     }
@@ -53,7 +50,6 @@ struct CardList: View {
             }
             .listStyle(InsetGroupedListStyle())
         }
-        .accentColor(Color.snow)
         .sheet(isPresented: self.$showingEditScreen, onDismiss: self.hideEdit, content: {
             AddCard().environmentObject(modelData)
         })
