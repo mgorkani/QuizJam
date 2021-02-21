@@ -7,47 +7,38 @@
 
 import SwiftUI
 
-struct DetailView: View {
-    var body: some View {
-        Text("Example Detail View")
-    }
-}
-
 struct ContentView: View {
     @Environment(\.scenePhase) private var scenePhase
+    
     let saveAction: () -> Void
     @State private var showPreview = false
-    @State private var fullScreen = false
+    @State private var fullScreen = true
     
     init(saveAction: @escaping () -> Void) {
-        NavBarTheme.navigationBarColors(background: UIColor(Color.magenta), titleColor: UIColor(Color.maximumYellow))
         self.saveAction = saveAction
+        
+        NavBarTheme.navigationBarColors(background: UIColor(Color.clear), titleColor: UIColor(Color.darkColor))
     }
     
     var body: some View {
         NavigationView {
-            
             ZStack {
                 Color.white.edgesIgnoringSafeArea(.all)
-                VStack(spacing: 25, content: {
-                    NavigationLink(destination: DetailView()) {
+                VStack(spacing: 35, content: {
+                    NavigationLink(destination: PracticeView()) {
                         ButtonTextUI(buttonText: "Practice")
                             .foregroundColor(Color.snow)
                             .background(Color.orangeRed)
                             .cornerRadius(25)
+                            .shadow(color: .orangeRed , radius: 10, x: 5, y: 5)
                     }
-                    
-                    Button(action: {
-                        showPreview.toggle()
-                    }) {
+
+                    NavigationLink(destination: CardList()) {
                         ButtonTextUI(buttonText: "Manage")
                             .foregroundColor(Color.snow)
                             .background(Color.oceanBlue)
                             .cornerRadius(25)
-                            .fullScreenCover(isPresented: $showPreview, content: {
-                                CardList()
-                            })
-                            
+                            .shadow(color: .oceanBlue, radius: 10, x: 5, y: 5)
                     }
                 })
                 Spacer()
@@ -57,25 +48,14 @@ struct ContentView: View {
             }
             .navigationBarTitle("QuizJam")
         }
-
     }
-    
-    //    @available(iOS 14, *)
-    //    func navigationBarTitleTextColor(_ color: Color) -> some View {
-    //        let uiColor = UIColor(color)
-    //
-    //        // Set appearance for both normal and large sizes.
-    //        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: uiColor ]
-    //        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: uiColor ]
-    //
-    //        return self
-    //    }
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView() {
-            
         }
         .environmentObject(ModelData())
     }

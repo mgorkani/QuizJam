@@ -17,19 +17,16 @@ extension Color {
     
     static let rightAnswerColor = Color(#colorLiteral(red: 0, green: 0.7109226584, blue: 0.2316525877, alpha: 1))
     static let wrontAnswerColor = Color(#colorLiteral(red: 0.753813982, green: 0.2891697288, blue: 0.3283427656, alpha: 1))
-//    static let fontColor = Color(#colorLiteral(red: 0.2468928397, green: 0.266464293, blue: 0.234403491, alpha: 1))
-//    static let cardBackgroundColor = Color(#colorLiteral(red: 0.8927761912, green: 0.9636031985, blue: 0.8475902081, alpha: 1))
-    
-    
+
     //Home Screen pallete 1
     
-    static let background = Color.white
-    static let snow = Color(red: 0.99, green: 0.95, blue: 0.96)
-    static let orangeRed = Color(red: 0.96, green: 0.35, blue: 0.29)
-    static let maximumYellow = Color(red: 0.96, green: 0.66, blue: 0.04)
-    static let oceanBlue = Color(red: 0.25, green: 0.24, blue: 0.85)
-    static let carribeanOcean = Color(red: 0.25, green: 0.82, blue: 0.58)
-    static let blizzardBlue = Color(red: 0.77, green: 0.95, blue: 1.00)
-    static let magenta = Color(red: 0.76, green: 0.23, blue: 0.53)
+    static let background = Color(#colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1))
+    static let darkColor = Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
+    static let snow = Color(#colorLiteral(red: 0.9882352941, green: 0.9529411765, blue: 0.9568627451, alpha: 1))
+    static let orangeRed = Color(#colorLiteral(red: 0.9647058824, green: 0.3450980392, blue: 0.2862745098, alpha: 1))
+    static let maximumYellow = Color(#colorLiteral(red: 0.9607843137, green: 0.6588235294, blue: 0.03921568627, alpha: 1))
+    static let oceanBlue = Color(#colorLiteral(red: 0.2549019608, green: 0.2352941176, blue: 0.8549019608, alpha: 1))
+    static let carribeanOcean = Color(#colorLiteral(red: 0.2509803922, green: 0.8156862745, blue: 0.5764705882, alpha: 1))
+    static let blizzardBlue = Color(#colorLiteral(red: 0.768627451, green: 0.9490196078, blue: 1, alpha: 1))
     
 }

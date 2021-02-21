@@ -76,7 +76,6 @@ struct CardList: View {
     }
     
     
-    
 }
 
 struct CardList_Previews: PreviewProvider {

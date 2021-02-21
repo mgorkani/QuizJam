@@ -71,6 +71,7 @@ struct PracticeView: View {
                 }
             }
             .padding([.horizontal, .top])
+            .navigationBarHidden(true)
             
             VStack(spacing: 120) {
                 ZStack(alignment: .bottomLeading) {

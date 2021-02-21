@@ -15,6 +15,6 @@ struct ButtonTextUI: View {
             .font(.title)
             .foregroundColor(Color.snow)
             .padding()
-            .frame(minWidth: 0, maxWidth: 200, minHeight: 0, maxHeight: 200)
+            .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 200)
     }
 }
