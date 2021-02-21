@@ -10,20 +10,50 @@ import SwiftUI
 struct CardList: View {
     @EnvironmentObject var modelData: ModelData
     @State private var showingEditScreen = false
+    
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color.snow)]
+        UITableView.appearance().backgroundColor = UIColor(Color.oceanBlue)
+    }
+    
     var body: some View {
         NavigationView {
-            
             List {
+                HStack {
+                    Text("\(modelData.cards.count) Cards")
+                        .foregroundColor(.secondary)
+                    Spacer()
+                }
+                
                 ForEach(modelData.cards) {card in
                     NavigationLink(destination: EditCard(card: card)) {
-                        Text(card.prompt)
+                        VStack(alignment: .leading) {
+                            Text(card.prompt)
+                                .font(.headline)
+                                .padding(.bottom, 2)
+                            Text(card.answer)
+                                .font(.subheadline)
+                        }
+                        .padding(.vertical)
                     }
                 }
                 .onDelete(perform: delete)
             }
-            .navigationBarItems(leading: EditButton(), trailing: Button(action: onAdd) { Image(systemName: "plus") })
-            .navigationTitle("Flash Cards")
+            .navigationTitle("Flashcard Bank")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    EditButton()
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: onAdd) {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
+            .listStyle(InsetGroupedListStyle())
         }
+        .accentColor(Color.snow)
         .sheet(isPresented: self.$showingEditScreen, onDismiss: self.hideEdit, content: {
             AddCard().environmentObject(modelData)
         })
