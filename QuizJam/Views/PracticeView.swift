@@ -19,9 +19,6 @@ struct PracticeView: View {
     @State private var dragStartLocation = CGPoint()
     @State private var dragEndLocation = CGPoint()
     
-    @State private var animateRightAnswerCount = false
-    @State private var animateWrongAnswerCount = false
-    
     var rightCount: Int {
         gradedAnswers.filter{ $0 }.count
     }
@@ -30,89 +27,117 @@ struct PracticeView: View {
         gradedAnswers.filter{ !$0 }.count
     }
     
-    var completePercentage: CGFloat {
-        if cards.isEmpty {
-            return 0
-        } else {
-            return CGFloat(currentCard) / CGFloat(cards.count)
-        }
-    }
-    
     @State private var practiceComplete = false
     
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
-        VStack(spacing: 30) {
-            ZStack(alignment: .bottomLeading) {
-                ForEach(0 ..< cards.count, id: \.self) { index in
-                    CardView(card: cards[index])
-                        .offset(getOffset(for: index))
-                        .opacity(!practiceComplete && index == currentCard ? 1.0 : 0)
-                        .animation(.easeOut)
-                }
-                
-                Button {
-                    restartPractice()
-                } label: {
-                    Label("Restart", systemImage: "arrow.counterclockwise")
-                        .font(.largeTitle)
-                        .foregroundColor(.fontColor)
-                }
-                .disabled(!practiceComplete)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                .background(CardBackground())
-                .opacity(practiceComplete ? 1 : 0)
-            }
-            .gesture(
-                DragGesture()
-                    .onChanged({ dragInfo in
-                        guard currentCard < cards.count else {
-                            return
-                        }
+        ZStack {
+            VStack {
+                HStack {
+                    Button(action: {
                         
-                        saveDragInfo(dragInfo)
+                    }, label: {
+                        Image(systemName: "questionmark.circle")
+                            .font(.title3)
+                            .foregroundColor(.gray)
                     })
-                    .onEnded { _ in
-                        guard currentCard < cards.count else {
-                            return
-                        }
-                        
-                        if abs(dragEndLocation.x - dragStartLocation.x) < screenbounds.width * 0.2 {
-                            dragOffset = .zero
-                        } else {
-                            if dragEndLocation.x < dragStartLocation.x {
-                                recordWrongAnswer()
-                            } else {
-                                recordRightAnswer()
-                            }
-                            
-                            if currentCard < cards.count - 1 {
-                                currentCard += 1
-                                dragOffset = .zero
-                            } else {
-                                currentCard += 1
-                                practiceComplete = true
-                            }
-                        }
-                    }
-            )
-            
-            CompletionBar(percentage: completePercentage)
-                .frame(maxHeight: 10)
-                .clipShape(RoundedRectangle(cornerRadius: 25.0))
-                .padding(.top, 50)
-            
-            HStack {
-                AnswerCountView(answerType: .wrong, count: wrongCount, animate: animateWrongAnswerCount)
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Image(systemName: "xmark")
+                            .font(.title3)
+                            .foregroundColor(.gray)
+                    })
+                }
                 
                 Spacer()
                 
-                AnswerCountView(answerType: .right, count: rightCount, animate: animateRightAnswerCount)
+                HStack {
+                    Spacer()
+                    
+                    if !practiceComplete {
+                        Text("\(currentCard + 1) / \(cards.count)")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                            .transition(.move(edge: .trailing))
+                            .animation(.easeIn)
+                            .padding(.trailing, 5)
+                    }
+                }
             }
+            .padding([.horizontal, .top])
+            
+            VStack(spacing: 120) {
+                ZStack(alignment: .bottomLeading) {
+                    ForEach(0 ..< cards.count, id: \.self) { index in
+                        CardView(card: cards[index])
+                            .offset(getOffset(for: index))
+                            .opacity(!practiceComplete && index == currentCard ? 1.0 : 0)
+                            .animation(.easeOut)
+                    }
+                    
+                    Button {
+                        restartPractice()
+                    } label: {
+                        Label("Restart", systemImage: "arrow.counterclockwise")
+                            .font(.largeTitle)
+                            .foregroundColor(.fontColor)
+                    }
+                    .disabled(!practiceComplete)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    .background(CardBackground())
+                    .opacity(practiceComplete ? 1 : 0)
+                }
+                .gesture(
+                    DragGesture()
+                        .onChanged({ dragInfo in
+                            guard currentCard < cards.count else {
+                                return
+                            }
+                            
+                            saveDragInfo(dragInfo)
+                        })
+                        .onEnded { _ in
+                            guard currentCard < cards.count else {
+                                return
+                            }
+                            
+                            if abs(dragEndLocation.x - dragStartLocation.x) < screenbounds.width * 0.2 {
+                                dragOffset = .zero
+                            } else {
+                                if dragEndLocation.x < dragStartLocation.x {
+                                    recordRightAnswer()
+                                } else {
+                                    recordWrongAnswer()
+                                }
+                                
+                                if currentCard < cards.count - 1 {
+                                    currentCard += 1
+                                    dragOffset = .zero
+                                } else {
+                                    currentCard += 1
+                                    practiceComplete = true
+                                }
+                            }
+                        }
+                )
+                
+                CompletionBar(rightAnswerCount: rightCount, wrongAnswerCount: wrongCount, cardCount: cards.count)
+                    .frame(maxHeight: 35)
+                    .padding(.horizontal, 30)
+                //                .padding(.bottom, 45)
+                
+            }
+            .padding(.horizontal, 45)
+            .padding(.vertical, 120)
+            .onAppear(perform: {
+                cards = modelData.cards.shuffled()
+            })
         }
-        .padding(30)
-        .onAppear(perform: {
-            cards = modelData.cards.shuffled()
-        })
     }
     
     fileprivate func restartPractice() {
@@ -121,8 +146,6 @@ struct PracticeView: View {
         dragOffset = .zero
         dragStartLocation = CGPoint()
         dragEndLocation = CGPoint()
-        animateRightAnswerCount = false
-        animateWrongAnswerCount = false
         practiceComplete = false
     }
     
@@ -134,28 +157,18 @@ struct PracticeView: View {
     
     fileprivate func recordWrongAnswer() {
         gradedAnswers.append(false)
-        
-        animateWrongAnswerCount.toggle()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            animateWrongAnswerCount.toggle()
-        }
     }
     
     fileprivate func recordRightAnswer() {
         gradedAnswers.append(true)
-        
-        animateRightAnswerCount.toggle()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            animateRightAnswerCount.toggle()
-        }
     }
     
     func getOffset(for index: Int) -> CGSize {
         if index < currentCard {
             if gradedAnswers[index] {
-                return CGSize(width: 2 * screenbounds.width, height: -1 * screenbounds.height * 0.25)
-            } else {
                 return CGSize(width: -1 * screenbounds.width, height: -1 * screenbounds.height * 0.25)
+            } else {
+                return CGSize(width: screenbounds.width, height: -1 * screenbounds.height * 0.25)
             }
         } else if index == currentCard {
             return dragOffset

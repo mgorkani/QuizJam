@@ -17,6 +17,9 @@ extension Color {
     static let completionBarBackgroundColor = Color(#colorLiteral(red: 1, green: 0.9282022119, blue: 0.7584571838, alpha: 1))
     static let completionBarButtonColor = Color(#colorLiteral(red: 1, green: 0.4447793961, blue: 0.3672052324, alpha: 1))
     
+    static let rightAnswerColor = Color(#colorLiteral(red: 0, green: 0.7109226584, blue: 0.2316525877, alpha: 1))
+    static let wrontAnswerColor = Color(#colorLiteral(red: 0.753813982, green: 0.2891697288, blue: 0.3283427656, alpha: 1))
+    
 //    static let cardBackgroundColor = Color(#colorLiteral(red: 0.9436573386, green: 0.9879108071, blue: 0.7188943028, alpha: 1))
 //    static let cardBackgroundColor = Color(#colorLiteral(red: 0.7432169914, green: 0.9934846759, blue: 0.957719028, alpha: 1))
 //    static let cardBackgroundColor = Color(#colorLiteral(red: 0.9971958995, green: 0.9431241751, blue: 0.9527503848, alpha: 1))

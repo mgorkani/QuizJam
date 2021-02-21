@@ -16,7 +16,7 @@ struct CardContents: View {
             .fontWeight(.bold)
             .multilineTextAlignment(.center)
             .foregroundColor(.fontColor)
-            .font(.title)
+            .font(.title2)
             .padding(20)
             .rotation3DEffect(
                 flipped ? .degrees(180) : .zero,

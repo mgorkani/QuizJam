@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showPractice = false
+    
     var body: some View {
-        PracticeView()
-            .environmentObject(ModelData())
+        Button("Practice") {
+            showPractice.toggle()
+        }
+        .fullScreenCover(isPresented: $showPractice, content: {
+            PracticeView()
+                .environmentObject(ModelData())
+        })
     }
 }
 
