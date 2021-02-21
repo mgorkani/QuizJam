@@ -30,5 +30,6 @@ extension Color {
     static let oceanBlue = Color(red: 0.25, green: 0.24, blue: 0.85)
     static let carribeanOcean = Color(red: 0.25, green: 0.82, blue: 0.58)
     static let blizzardBlue = Color(red: 0.77, green: 0.95, blue: 1.00)
+    static let magenta = Color(red: 0.76, green: 0.23, blue: 0.53)
     
 }

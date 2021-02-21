@@ -20,7 +20,7 @@ struct ContentView: View {
     @State private var fullScreen = false
     
     init(saveAction: @escaping () -> Void) {
-        NavBarTheme.navigationBarColors(background: UIColor(.clear), titleColor: UIColor(Color.maximumYellow))
+        NavBarTheme.navigationBarColors(background: UIColor(Color.magenta), titleColor: UIColor(Color.maximumYellow))
         self.saveAction = saveAction
     }
     
@@ -44,9 +44,10 @@ struct ContentView: View {
                             .foregroundColor(Color.snow)
                             .background(Color.oceanBlue)
                             .cornerRadius(25)
-                            .sheet(isPresented: $showPreview, content: {
+                            .fullScreenCover(isPresented: $showPreview, content: {
                                 CardList()
                             })
+                            
                     }
                 })
                 Spacer()
